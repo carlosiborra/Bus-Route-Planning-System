@@ -46,7 +46,7 @@ s.t. CapacidadAceptable {(i,j) in localizaciones}: FLUJO[i,j] - (bus_capacidad *
 
 s.t. CapacidadExcedida {(i,j) in localizaciones}: -mGrande * VISITADO[i,j] + FLUJO[i,j] <= (bus_capacidad + 1);  # Si suben más de 20, se usa otro bus
 
-s.t. EntradaSalida {j in paradas}: sum{i in localizacion} (FLUJO[i,j] - FLUJO[j,i]) + estudiantes[j] = 0;  # Entrada + Alumnos en la parada = salida
+s.t. FlujoEntradaSalida {j in paradas}: sum{i in localizacion} (FLUJO[i,j] - FLUJO[j,i]) + estudiantes[j] = 0;  # Flujo de entrada + alumnos en la parada = flujo de salida
 
 
 
