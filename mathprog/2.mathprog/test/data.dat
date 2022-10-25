@@ -1,0 +1,54 @@
+data;
+
+set localizacion := P S1 S2 S3 S4 C;
+set paradas := S1 S2 S3 S4;
+set origen := P;
+set destino := C;
+
+set alumnos := A1, A2, A3, A4, A5, A6, A7, A8, A9;
+
+
+param mGrande := 999999;
+param bus_capacidad := 5;
+param bus_coste_fijo := 110;
+param bus_coste_km := 5;
+param bus_numero_max := 3;
+
+param longitud:
+      P         S1        S2        S3        S4        C:=
+  P   999999    8         10        10        10        999999
+  S1  999999    999999    3         7         7         6
+  S2  999999    3         999999    5         5         7
+  S3  999999    7         5         999999    999999    4
+  S4  999999    7         5         999999    999999    4
+  C   999999    999999    999999    999999    999999    999999
+  ;
+
+param paradasAlumnos:
+        S1        S2        S3         S4     :=
+  A1    1         1         0          1  
+  A2    1         0         0          0 
+  A3    1         0         0          1
+  A4    1         1         1          1
+  A5    1         1         1          1
+  A6    0         0         1          1
+  A7    1         1         1          1
+  A8    0         0         1          1
+  A9    1         1         1          1 
+  ;
+
+param hermanos:
+        A1    A2    A3    A4    A5    A6    A7    A8    A9 :=
+  A1    0     0     0     0     0     0     1     0     1  
+  A2    0     0     0     0     0     0     0     0     0
+  A3    0     0     0     0     0     0     0     0     0
+  A4    0     0     0     0     1     0     0     0     0
+  A5    0     0     0     1     0     0     0     0     0
+  A6    0     0     0     0     0     0     0     0     0
+  A7    1     0     0     0     0     0     0     0     1
+  A8    0     0     0     0     0     0     0     0     0
+  A9    1     0     0     0     0     0     1     0     0
+  ;
+
+
+end;
